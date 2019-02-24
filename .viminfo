@@ -12,9 +12,7 @@
 ~H
 # Command Line History (newest to oldest):
 :q
-|2,0,1551014301,,"q"
-:wq
-|2,0,1551009276,,"wq"
+|2,0,1551035168,,"q"
 
 # Search String History (newest to oldest):
 
@@ -27,39 +25,7 @@
 # Registers:
 
 # File marks:
-'0  3  0  ~/Documents/dotfiles/link.sh
-|4,48,3,0,1551009276,"~/Documents/dotfiles/link.sh"
-'1  1  0  ~/Documents/dotfiles/link
-|4,49,1,0,1551009118,"~/Documents/dotfiles/link"
 
 # Jumplist (newest first):
--'  3  0  ~/Documents/dotfiles/link.sh
-|4,39,3,0,1551009276,"~/Documents/dotfiles/link.sh"
--'  3  0  ~/Documents/dotfiles/link.sh
-|4,39,3,0,1551009276,"~/Documents/dotfiles/link.sh"
--'  1  0  ~/Documents/dotfiles/link.sh
-|4,39,1,0,1551009123,"~/Documents/dotfiles/link.sh"
--'  1  0  ~/Documents/dotfiles/link.sh
-|4,39,1,0,1551009123,"~/Documents/dotfiles/link.sh"
--'  1  0  ~/Documents/dotfiles/link
-|4,39,1,0,1551009118,"~/Documents/dotfiles/link"
--'  1  0  ~/Documents/dotfiles/link
-|4,39,1,0,1551009118,"~/Documents/dotfiles/link"
--'  1  0  ~/Documents/dotfiles/link
-|4,39,1,0,1551009118,"~/Documents/dotfiles/link"
--'  1  0  ~/Documents/dotfiles/link
-|4,39,1,0,1551009118,"~/Documents/dotfiles/link"
 
 # History of marks within files (newest to oldest):
-
-> ~/Documents/dotfiles/link.sh
-	*	1551009275	0
-	"	3	0
-	^	3	0
-	.	3	0
-	+	2	0
-	+	3	0
-
-> ~/Documents/dotfiles/link
-	*	1551009115	0
-	"	1	0

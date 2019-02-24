@@ -13,4 +13,5 @@ alias ll="ls -al" # List all files in current directory in long list format
 alias ldir="ls -al | grep ^d" # List all directories in current directory in long list format
 alias o="open ." # Open the current directory in Finder
 alias ut="uptime" # Computer uptime
+alias dotfiles="cd $HOME/Documents/dotfiles"
 alias work="cd $HOME/Documents/4th_Year"

@@ -78,14 +78,7 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-runscript(){
-	sh ~/scripts/$1.sh $2 $3 $4
-}
 
-runSVR(){
-	echo "Running SVR on $1"
-	~/savilerow-1.7.0RC-linux/savilerow -run-solver $3 $1 $2
-}
 
 # If not running interactively, don't do anything
 case $- in

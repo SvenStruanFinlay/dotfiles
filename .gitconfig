@@ -1,0 +1,8 @@
+[user]
+	email = github@svensfinlay.tech
+	name = Sven Struan Finlay
+[core]
+	autocrlf = input
+	editor = vim
+[push]
+	default = simple

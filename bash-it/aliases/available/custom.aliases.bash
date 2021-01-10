@@ -1,7 +1,7 @@
 cite 'custom-alias'
 about-alias 'my own aliases'
 
-alias school="ssh ssf6@ssf6.host.cs.st-andrews.ac.uk"
+# alias school="ssh ssf6@ssf6.host.cs.st-andrews.ac.uk"
 alias reload="source ~/.bashrc"
 alias settings="atom ~/.bashrc"
 alias clr="clear" # Clear your terminal screen
@@ -14,4 +14,7 @@ alias ldir="ls -al | grep ^d" # List all directories in current directory in lon
 alias o="open ." # Open the current directory in Finder
 alias ut="uptime" # Computer uptime
 alias dotfiles="cd $HOME/Documents/dotfiles"
-alias work="cd $HOME/Documents/4th_Year"
+alias work="cd $HOME/Documents/"
+alias shortcuts=" atom /home/shween/Documents/dotfiles/bash-it/aliases/available/custom.aliases.bash"
+alias desk="cd $HOME/Desktop/"
+alias down="cd $HOME/Downloads/"

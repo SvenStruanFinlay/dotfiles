@@ -3,8 +3,27 @@
 # DATE: 2012-10-30
 # rparree-at-edc4it-dot-com
 
+# MIT License
 
+# Copyright (c) 2020 Raphael Parree
 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 _serverProfiles(){
     if [[ $COMP_WORDS == *standalone.sh* ]]
@@ -14,17 +33,17 @@ _serverProfiles(){
        # assume is domain.sh
       serverdir="../domain/configuration/"
     fi
-    
+
     for i in  ${!COMP_WORDS[*]}
     do
       if [[ "${COMP_WORDS[i]}" == "-Djboss.server.base.dir" || "${COMP_WORDS[i]}" == "-Djboss.domain.base.dir" ]]; then
         serverdir="${COMP_WORDS[i+2]}/configuration"
-      fi 
-      
+      fi
+
     done
     if [ -d "${serverdir}" ]
     then
- 
+
       IFS=$'\n' tmp="$(ls "${serverdir}" | grep xml)"
         local fls="${tmp[@]// /\ }"
       unset IFS
@@ -42,13 +61,13 @@ _bindingAddress(){
 }
 
 _jboss(){
-    
+
     local cur prev words cword
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
-  
+
     case $cur in
-	
+
         -Djboss.socket.binding.port-offset=*)
             cur=${cur#*=}
             #static list of common bindings sets
@@ -70,13 +89,13 @@ _jboss(){
             COMPREPLY=( $(compgen -W "${booleans}" -- ${cur}) )
             return 0
             ;;
-        
+
         -Djboss.server.base.dir=*|-Djboss.home.dir=*|-Djboss.domain.base.dir=*)
            cur=${cur#*=}
            _filedir -d
            return 0
            ;;
-         
+
         -Djboss.domain.master.address=*|-Djboss.bind.address*=*)
            cur=${cur#*=}
            _bindingAddress
@@ -85,8 +104,8 @@ _jboss(){
         --server-config=*|-c=|--host-config=*)
 	   cur=${cur#*=}
            _serverProfiles
-           return 0 
-     
+           return 0
+
 
     esac
 
@@ -110,14 +129,14 @@ _jboss(){
             ;;
     esac
     # *** from jboss5  ********************
-    # *** -modulepath  -c -m  -g -l -d -p -n -B -L -C  -Djboss.platform.mbeanserver -Djboss.server.base.directory   
+    # *** -modulepath  -c -m  -g -l -d -p -n -B -L -C  -Djboss.platform.mbeanserver -Djboss.server.base.directory
     # ***  -Djboss.Domain -Djboss.modcluster.proxyList  -Djboss.jvmRoute -Djboss.default.jgroups.stack -Dorg.jboss.ejb3.remoting.IsLocalInterceptor.passByRef -Djboss.platform.mbeanserver -Dcom.sun.management.jmxremote.port -Dcom.sun.management.jmxremote.ssl
     # *************************************
-    
+
     # standard commands for standalone and domain mode
     local commandsWithoutEqualSign='-b -bmanagement -bunsecure -bpublic --admin-only -h -help -u -version -V -v'
     local commandsWithEqualSign='-P -Djboss.node.name -Djboss.home.dir -Djboss.socket.binding.port-offset -Djboss.bind.address.management -Djboss.bind.address -Djboss.bind.address.unsecure'
-    
+
     if [[ $COMP_WORDS == *standalone.sh* ]]
     then
        commandsWithoutEqualSign="${commandsWithoutEqualSign} -c"
@@ -127,15 +146,15 @@ _jboss(){
        commandsWithoutEqualSign="${commandsWithoutEqualSign} --backup  --cached-dc"
        commandsWithEqualSign="${commandsWithEqualSign} -Djboss.domain.master.address --host-config -Djboss.domain.master.port -Djboss.domain.base.dir "
     fi
-     
 
-    
-    
-    COMPREPLY=( $( compgen -W "$commandsWithoutEqualSign" -- "$cur" ) 
-                $( compgen -W "$commandsWithEqualSign"  -S '=' -- "$cur" ) )       
+
+
+
+    COMPREPLY=( $( compgen -W "$commandsWithoutEqualSign" -- "$cur" )
+                $( compgen -W "$commandsWithEqualSign"  -S '=' -- "$cur" ) )
     return 0
 
-  
+
 }
 complete -o nospace -F _jboss standalone.sh
 complete -o nospace -F _jboss domain.sh

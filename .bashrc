@@ -25,12 +25,11 @@ esac
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/Documents/dotfiles/bash-it/"
-
+export THEME_CHECK_SUDO=false
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-export BASH_IT_THEME='bobby'
-
+export BASH_IT_THEME='bobby-python'
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
 # export BASH_IT_REMOTE='bash-it'
@@ -77,6 +76,4 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
-
-
-
+source /usr/share/bash-completion/completions/git

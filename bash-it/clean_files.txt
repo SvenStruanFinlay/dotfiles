@@ -1,0 +1,61 @@
+#######################################################################
+# Allow-list of files to be lint-checked by CI
+#
+# Directory Suport
+#   Directory references are allowed within the file, ie:
+#
+#       themes/powerline
+#
+#   All files under the referenced directory will be checked
+#
+# Checking Files Locally
+#   You can manually invoke the check via:
+#
+#       lint_clean_files.sh
+#
+
+# root directories
+#
+docs
+hooks
+
+# root files
+#
+.gitattributes
+lint_clean_files.sh
+
+# plugins
+#
+plugins/available/history.plugin.bash
+plugins/available/history-search.plugin.bash
+plugins/available/history-substring-search.plugin.bash
+
+# themes
+#
+themes/agnoster
+themes/90210
+themes/powerline
+themes/barbuk
+themes/atomic
+themes/axin
+themes/base.theme.bash
+
+# plugins
+#
+plugins/available/basher.plugin.bash
+
+# completions
+#
+completion/available/cargo.completion.bash
+completion/available/knife.completion.bash
+completion/available/packer.completion.bash
+completion/available/pipx.completion.bash
+completion/available/rustup.completion.bash
+completion/available/vault.completion.bash
+completion/available/sdkman.completion.bash
+
+# aliases
+#
+aliases/available/dnf.aliases.bash
+aliases/available/vim.aliases.bash
+aliases/available/git.aliases.bash
